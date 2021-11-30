@@ -32,17 +32,17 @@ const salarios = [
     },
 ]
 
-const id = 4;
+const id = 120;
 //const getEmpleado = (id)=> empleados.find(e => e.id === id);
 
 const getEmpleado = (id, callback)=>{
     const empleado = empleados.find(e=> e.id === id)
-    empleado? callback(null, empleado):callback(`El empleado con el id ${id} no existe`);
+    empleado? callback(null, empleado.empleado):callback(`El empleado con el id ${id} no existe`);
 }
 
 const getSalario = (id, callback)=>{
-    const salario = salarios.find(e => e.id === id)
-    salario? callback(null, salario):callback(`El salario para el empleado ${id} no existe`)
+    const result = salarios.find(e => e.id === id);
+    result? callback(null, result):callback(`El salario para el empleado ${id} no existe`)
 }
 
 getEmpleado(id, (err, empleado)=>{
